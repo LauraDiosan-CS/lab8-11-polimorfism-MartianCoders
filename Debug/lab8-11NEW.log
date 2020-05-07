@@ -1,0 +1,26 @@
+﻿  tests.cpp
+D:\C++\lab8-11NEW\RepoFile.h(54,2): warning C4018: '<': signed/unsigned mismatch
+D:\C++\lab8-11NEW\RepoFile.h(53): message : while compiling class template member function 'void Repository<Medicament>::deleteP(T *)'
+          with
+          [
+              T=Medicament
+          ]
+D:\C++\lab8-11NEW\tests.cpp(68): message : see reference to function template instantiation 'void Repository<Medicament>::deleteP(T *)' being compiled
+          with
+          [
+              T=Medicament
+          ]
+D:\C++\lab8-11NEW\RepoFileTXT.h(5): message : see reference to class template instantiation 'Repository<Medicament>' being compiled
+D:\C++\lab8-11NEW\tests.cpp(50): message : see reference to class template instantiation 'RepositoryFileTXT<Medicament>' being compiled
+D:\C++\lab8-11NEW\RepoFile.h(42,2): warning C4018: '<': signed/unsigned mismatch
+D:\C++\lab8-11NEW\RepoFile.h(41): message : while compiling class template member function 'void Repository<Medicament>::update(T *,T *)'
+          with
+          [
+              T=Medicament
+          ]
+D:\C++\lab8-11NEW\tests.cpp(64): message : see reference to function template instantiation 'void Repository<Medicament>::update(T *,T *)' being compiled
+          with
+          [
+              T=Medicament
+          ]
+  lab8-11NEW.vcxproj -> D:\C++\lab8-11NEW\Debug\lab8-11NEW.exe
