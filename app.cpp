@@ -25,7 +25,6 @@ void allFilesFolder() {
 
 int main() {
 	test_all();
-	/*
 	std::string employeeFile;
 	std::string drugsFile;
 
@@ -41,7 +40,7 @@ int main() {
 	if (val.fileChecker(employeeFile, drugsFile) == true) {
 		RepositoryDrug storageDrugs(drugsFile);
 		RepositoryEmployee storageEmployee(employeeFile);
-		ControllerDrug controllerDrug(storageDrugs);
+		MedicineService controllerDrug(storageDrugs);
 		ControllerEmployee controllerEmployee(storageEmployee);
 
 		UI ui(controllerDrug, controllerEmployee);
@@ -49,6 +48,6 @@ int main() {
 	}
 	else
 		std::cout << "Wrong file input, retryx";
-		*/
+		
 	_CrtDumpMemoryLeaks();
 }

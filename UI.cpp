@@ -13,8 +13,8 @@
 
 UI::UI() {}
 
-UI::UI(const ControllerDrug& cd, const ControllerEmployee& ce) {
-	this->controllerDrugs = cd;
+UI::UI(const MedicineService& cd, const ControllerEmployee& ce) {
+	this->MedicineServices = cd;
 	this->controllerEmployee = ce;
 }
 
@@ -87,7 +87,7 @@ void UI::showAllE() {
 }
 
 void UI::showAllD() {
-	std::vector<Medicament> elements = this->controllerDrugs.getAll();
+	std::vector<Medicament> elements = this->MedicineServices.getAll();
 
 	for (int i = 0; i < elements.size(); i++)
 		std::cout << elements[i] << std::endl;
@@ -145,7 +145,8 @@ void UI::addD(std::string cmd) {
 			recipe = true;
 		int stock = stoi(strings[3]);
 
-		//this->controllerDrugs.add(ID, strings[1], recipe, stock, strings[4]);
+		Medicament med(ID, strings[1], recipe, stock, strings[4]);
+		this->MedicineServices.add(med);
 	}
 	catch (MyExceptions exc) {
 		std::cout << exc.getMessage() << '\n';
@@ -204,7 +205,10 @@ void UI::updateD(std::string cmd) {
 			recipe = true;
 		int stock = stoi(strings[3]);
 
-		//this->controllerDrugs.update(ID, strings[1], recipe, stock, strings[4]);
+		Medicament med1(ID, "", false, 0, "");
+		Medicament med2(ID, strings[1], recipe, stock, strings[4]);
+
+		this->MedicineServices.update(med1, med2);
 	}
 	catch (MyExceptions exc) {
 		std::cout << exc.getMessage() << '\n';
@@ -246,7 +250,7 @@ void UI::delD(std::string cmd) {
 		val.deleteValidator(token);
 
 		int ID = stoi(token);
-		this->controllerDrugs.dell(ID);
+		this->MedicineServices.dell(ID);
 	}
 	catch (MyExceptions exc) {
 		std::cout << exc.getMessage() << '\n';
@@ -266,7 +270,7 @@ void UI::find(std::string cmd) {
 	try {
 		val.drugSearchValidator(token);
 
-		std::vector<Medicament> result = this->controllerDrugs.findDrug(token);
+		std::vector<Medicament> result = this->MedicineServices.search(token);
 		for (int i = 0; i < result.size(); i++)
 			std::cout << result[i] << '\n';
 	}

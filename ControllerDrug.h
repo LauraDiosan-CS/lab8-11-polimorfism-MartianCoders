@@ -1,14 +1,14 @@
 #pragma once
 #include "RepositoryDrug.h"
 
-class ControllerDrug {
+class MedicineService {
 private:
 	RepositoryDrug storageDrug;
 public:
 	/* Constructor & Destructor */
-	ControllerDrug(); // Default
-	ControllerDrug(const RepositoryDrug&); // Given Repository
-	~ControllerDrug(); // Destructor
+	MedicineService(); // Default
+	MedicineService(const RepositoryDrug&); // Given Repository
+	~MedicineService(); // Destructor
 
 	/* CRUD's */
 	void add(Medicament); // Add element (In: ID, name, recipe, stock, producer)
@@ -21,5 +21,5 @@ public:
 	std::string getFile();
 
 	/* Operations */
-	std::vector<Medicament> findDrug(std::string);
+	std::vector<Medicament> search(std::string);
 };

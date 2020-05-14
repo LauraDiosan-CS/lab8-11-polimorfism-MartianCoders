@@ -71,20 +71,20 @@ void test_repoEmployee() {
 }
 
 void test_contMedicament() {
-	ControllerDrug controllerMedicamentTest;
+	MedicineService controllerMedicamentTest;
 	RepositoryDrug storageMedicaments("tests.txt");
-	ControllerDrug controllerMedicament(storageMedicaments);
+	MedicineService controllerMedicament(storageMedicaments);
 	Medicament d1(1, "Paracetamol", false, 50, "RoFarm");
 	Medicament d2(1, "Nurofen", true, 25, "Ro");
-	//controllerMedicament.add(1, "Paracetamol", false, 50, "RoFarm");
-	//controllerMedicament.add(1, "Nurofen", true, 25, "Ro");
+	controllerMedicament.add(d1);
+	controllerMedicament.add(d2);
 	assert(controllerMedicament.getSize() == 1);
 	assert(controllerMedicament.getAll()[0] == d1);
-	//controllerMedicament.update(1, "Nurofen", true, 25, "Ro");
+	controllerMedicament.update(d1, d2);
 	assert(controllerMedicament.getAll()[0] == d2);
 	
 	std::string medicament = "nuro";
-	std::vector<Medicament> result = controllerMedicament.findDrug(medicament);
+	std::vector<Medicament> result = controllerMedicament.search(medicament);
 	for (int i = 0; i < result.size(); i++)
 		assert(result[i].getName() == "Nurofen");
 	controllerMedicament.dell(1);
@@ -112,7 +112,7 @@ void test_contEmployee() {
 void test_login() {
 	RepositoryEmployee testStorageEmpl("tests.txt");
 	RepositoryDrug testStorageMedicament("tests.txt");
-	ControllerDrug contrMedicament(testStorageMedicament);
+	MedicineService contrMedicament(testStorageMedicament);
 	ControllerEmployee contrEmp(testStorageEmpl);
 	UI ui(contrMedicament, contrEmp);
 	Employee e1(1, "Teodor", "info.teodor@gmail.com", 10);
@@ -125,7 +125,7 @@ void test_login() {
 
 void test_lab() {
 	RepositoryDrug repoMedicament;
-	ControllerDrug service(repoMedicament);
+	MedicineService service(repoMedicament);
 	Medicament m1(100, "parasinus", false, 10, "p1");
 	Medicament m2(200, "ketonal", false, 90, "p2");
 	Medicament m3(300, "antibiotic", true, 70, "p3");
@@ -138,29 +138,26 @@ void test_lab() {
 	service.add(m3);
 	assert(service.getAll()[2] == m3);
 
-	assert(service.findDrug("ic").size() == 1);
-	assert(service.findDrug("a").size() == 3);
+	assert(service.search("ic").size() == 1);
+	assert(service.search("a").size() == 3);
 
 	Medicament m1_new(100, "altceva", false, 50, "p1");
 	service.update(m1, m1_new);
-	assert(service.findDrug("al").size() == 2);
-	assert(service.findDrug("al")[0] == m1_new);
-	assert(service.findDrug("al")[1] == m2);
+	assert(service.search("al").size() == 2);
+	assert(service.search("al")[0] == m1_new);
+	assert(service.search("al")[1] == m2);
 	service.dell(200);
-	assert(service.findDrug("al").size() == 1);
-	assert(service.findDrug("al")[0] == m1_new);
-
-
-
+	assert(service.search("al").size() == 1);
+	assert(service.search("al")[0] == m1_new);
 }
 
 void test_all() {
-	//test_employee();
-	//test_Medicament();
-	//test_repoMedicament();
-	//test_repoEmployee();
-	//test_contMedicament();
-	//test_contEmployee();
-	//test_login();
+	test_employee();
+	test_Medicament();
+	test_repoMedicament();
+	test_repoEmployee();
+	test_contMedicament();
+	test_contEmployee();
+	test_login();
 	test_lab();
 }

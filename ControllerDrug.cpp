@@ -2,15 +2,15 @@
 
 #include <algorithm>
 
-ControllerDrug::ControllerDrug() {}
+MedicineService::MedicineService() {}
 
-ControllerDrug::ControllerDrug(const RepositoryDrug& repo) {
+MedicineService::MedicineService(const RepositoryDrug& repo) {
 	this->storageDrug = repo;
 }
 
-ControllerDrug::~ControllerDrug() {}
+MedicineService::~MedicineService() {}
 
-void ControllerDrug::add(Medicament medic) {
+void MedicineService::add(Medicament medic) {
 	std::vector<Medicament> drugs = this->storageDrug.getAll();
 	bool exists = false;
 
@@ -22,14 +22,14 @@ void ControllerDrug::add(Medicament medic) {
 	}
 }
 
-void ControllerDrug::update(Medicament m1, Medicament m2) {
+void MedicineService::update(Medicament m1, Medicament m2) {
 	std::vector<Medicament> drugs = this->storageDrug.getAll();
 	for(int i = 0; i < drugs.size(); i++)
 		if(m1.getID() == drugs[i].getID())
 			this->storageDrug.updateElement(m2);
 }
 
-void ControllerDrug::dell(int ID) {
+void MedicineService::dell(int ID) {
 	std::vector<Medicament> drugs = this->storageDrug.getAll();
 
 	for(int i = 0; i < drugs.size(); i++)
@@ -37,15 +37,15 @@ void ControllerDrug::dell(int ID) {
 			this->storageDrug.deleteElement(drugs[i]);
 }
 
-std::vector<Medicament> ControllerDrug::getAll() {
+std::vector<Medicament> MedicineService::getAll() {
 	return this->storageDrug.getAll();
 }
 
-int ControllerDrug::getSize() {
+int MedicineService::getSize() {
 	return this->storageDrug.getSize();
 }
 
-std::vector<Medicament> ControllerDrug::findDrug(std::string medic) {
+std::vector<Medicament> MedicineService::search(std::string medic) {
 	std::vector<Medicament> storageDrugs = this->storageDrug.getAll();
 	std::vector<Medicament> result;
 	for (int i = 0; i < storageDrugs.size(); i++) {

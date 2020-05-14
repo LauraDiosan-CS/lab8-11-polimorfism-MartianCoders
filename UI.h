@@ -4,14 +4,14 @@
 
 class UI {
 private:
-	ControllerDrug controllerDrugs;
+	MedicineService MedicineServices;
 	ControllerEmployee controllerEmployee;
 	std::vector<Employee> usersStorage;
 	std::string user;
 	int userGrade;
 public:
 	UI();
-	UI(const ControllerDrug&, const ControllerEmployee&);
+	UI(const MedicineService&, const ControllerEmployee&);
 	~UI();
 
 	/* Login */
