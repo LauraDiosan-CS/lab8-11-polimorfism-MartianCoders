@@ -1,0 +1,7 @@
+﻿  tests.cpp
+D:\C++\lab8-11\tests.cpp(88,20): warning C4018: '<': signed/unsigned mismatch
+D:\C++\lab8-11\Repository.h(49,2): warning C4018: '<': signed/unsigned mismatch
+D:\C++\lab8-11\Repository.h(44): message : while compiling class template member function 'void Repository<Employee>::saveFile(void)'
+D:\C++\lab8-11\Repository.h(38): message : see reference to function template instantiation 'void Repository<Employee>::saveFile(void)' being compiled
+D:\C++\lab8-11\RepositoryEmployee.h(8): message : see reference to class template instantiation 'Repository<Employee>' being compiled
+  lab8-11.vcxproj -> D:\C++\lab8-11\Debug\lab8-11.exe

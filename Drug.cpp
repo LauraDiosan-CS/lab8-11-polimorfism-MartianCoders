@@ -73,11 +73,6 @@ Medicament& Medicament::operator=(const Medicament& d) {
 	return *this;
 }
 
-Medicament* Medicament::clone()
-{
-	return new Medicament(this->ID, this->name, this->recipe, this->stock, this->producer);
-}
-
 bool Medicament::operator==(const Medicament& d) const {
 	if (this->ID == d.ID && this->name == d.name && this->recipe == d.recipe && this->stock == d.stock && this->producer == d.producer)
 		return true;

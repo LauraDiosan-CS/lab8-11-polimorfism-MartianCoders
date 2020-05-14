@@ -1,0 +1,2 @@
+1 Paracetamol false 100 rofarm
+2 Nurofen false 25 Bayer

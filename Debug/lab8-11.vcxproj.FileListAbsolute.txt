@@ -1,0 +1,2 @@
+D:\C++\lab8-11\Debug\lab8-11.exe
+D:\C++\lab8-11\Debug\lab8-11.pdb

@@ -43,8 +43,8 @@ public:
 
 #endif // !EMPLOYEE_H
 
-#ifndef Medicament_H
-#define Medicament_H
+#ifndef DRUG_H
+#define DRUG_H
 #include <string>
 #include <fstream>
 
@@ -61,8 +61,7 @@ public:
 	Medicament(const Medicament&); // Copy
 	Medicament(int, std::string, bool, int, std::string); // Given data (In: ID, name, recipe, stock, producer)
 	~Medicament(); // Destructor
-	
-	virtual Medicament* clone();
+
 	/* Get's */
 	int getID(); // Returns ID (Out: ID)
 	std::string getName(); // Returns Name (Out: name)
@@ -85,6 +84,6 @@ public:
 
 };
 
-#endif // !Medicament_H
+#endif // !DRUG_H
 
 
